@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="lthdt.chuong03.coffeelogic">
+  <ClassDiagramComponents>
+    <Class name="coffeeshop" package="lthdt.chuong03.coffeelogic" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="address" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="String" name="address"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getAddress" returnType="String" visibility="public"/>
+        <Method name="setAddress" returnType="void" visibility="public">
+          <Argument type="String" name="address"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="manager" package="lthdt.chuong03.coffeelogic" visibility="public" xPosition="103.0" yPosition="387.0">
+      <Fields>
+        <Field name="shops" type="coffeeshop[]" visibility="private"/>
+        <Field name="income" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="coffeeshop[]" name="shops"/>
+          <Argument type="double" name="income"/>
+          <Argument type="String" name="hoten"/>
+          <Argument type="int" name="gioitinh"/>
+          <Argument type="Date" name="ngaysinh"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getShops" returnType="coffeeshop[]" visibility="public"/>
+        <Method name="setShops" returnType="void" visibility="public">
+          <Argument type="coffeeshop[]" name="shops"/>
+        </Method>
+        <Method name="getIncome" returnType="double" visibility="public"/>
+        <Method name="setIncome" returnType="void" visibility="public">
+          <Argument type="double" name="income"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Person" package="lthdt.chuong03.coffeelogic" visibility="public" xPosition="413.0" yPosition="20.0">
+      <Fields>
+        <Field name="hoten" type="String" visibility="private"/>
+        <Field name="gioitinh" type="int" visibility="private"/>
+        <Field name="ngaysinh" type="Date" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="hoten"/>
+          <Argument type="int" name="gioitinh"/>
+          <Argument type="Date" name="ngaysinh"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getHoten" returnType="String" visibility="public"/>
+        <Method name="setHoten" returnType="void" visibility="public">
+          <Argument type="String" name="hoten"/>
+        </Method>
+        <Method name="getGioitinh" returnType="int" visibility="public"/>
+        <Method name="setGioitinh" returnType="void" visibility="public">
+          <Argument type="int" name="gioitinh"/>
+        </Method>
+        <Method name="getNgaysinh" returnType="Date" visibility="public"/>
+        <Method name="setNgaysinh" returnType="void" visibility="public">
+          <Argument type="Date" name="ngaysinh"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="lthdt.chuong03.coffeelogic.manager" target="lthdt.chuong03.coffeelogic.coffeeshop" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="lthdt.chuong03.coffeelogic.manager" target="lthdt.chuong03.coffeelogic.Person"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

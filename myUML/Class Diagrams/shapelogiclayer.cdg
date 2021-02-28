@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="shapelogic">
+  <ClassDiagramComponents>
+    <Class name="hinhhoc" package="shapelogic" visibility="public" isAbstract="true" xPosition="366.0" yPosition="53.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="tinhCV" returnType="double" visibility="public"/>
+        <Method name="tinhDT" returnType="double" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="hinhtron" package="shapelogic" visibility="public" xPosition="108.0" yPosition="367.0">
+      <Fields>
+        <Field name="x" type="int" visibility="private"/>
+        <Field name="y" type="int" visibility="private"/>
+        <Field name="r" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="hinhchunhat" package="shapelogic" visibility="public" xPosition="586.0" yPosition="367.0">
+      <Fields>
+        <Field name="lower_x" type="int" visibility="private"/>
+        <Field name="lower_y" type="int" visibility="private"/>
+        <Field name="upper_x" type="int" visibility="private"/>
+        <Field name="upper_y" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="shapelogic.hinhchunhat" target="shapelogic.hinhhoc"/>
+    <IsRelation name="is" source="shapelogic.hinhtron" target="shapelogic.hinhhoc"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
