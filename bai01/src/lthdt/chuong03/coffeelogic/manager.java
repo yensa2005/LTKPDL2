@@ -5,6 +5,7 @@
  */
 package lthdt.chuong03.coffeelogic;
 
+import java.util.Arrays;
 import java.util.Date;
 
 /**
@@ -44,7 +45,7 @@ public class manager extends Person{
     @Override
     public String toString() {
         String ketqua = super.toString();
-        ketqua += "manager{" + "shops=" + shops + ", income=" + income + '}';
+        ketqua += "manager{" + "shops=" + Arrays.deepToString(shops) + ", income=" + income + '}';
         return ketqua;
     }
     

@@ -196,7 +196,7 @@ public class employeeGUI extends javax.swing.JFrame {
         }
         SimpleDateFormat df = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
         DefaultTableModel model = (DefaultTableModel)tblSV.getModel();
-        model.insertRow(model.getColumnCount(), new Object[]{model.getRowCount() + 1,
+        model.insertRow(model.getRowCount(), new Object[]{model.getRowCount() + 1,
                                                              obj.getHoten(),
                                                              df.format(obj.getNgaysinh()),
                                                              obj.getTruonghoc(),
