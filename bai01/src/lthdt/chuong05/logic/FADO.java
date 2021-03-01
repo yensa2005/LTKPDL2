@@ -5,7 +5,14 @@
  */
 package lthdt.chuong05.logic;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 
 /**
@@ -73,6 +80,51 @@ public class FADO {
         for(int i = 0; i < sub.length; i++){
             getContentRecursively(folder + File.separator + sub[i].getName());
         }
+    }
+    //Thao tac 6: doc file van ban
+    public String readTextFile(String filename) throws FileNotFoundException{
+        StringBuilder content = new StringBuilder();
+        
+        try {
+            //mo file
+            FileReader fr = new FileReader(filename);
+            //dung bo dem
+            BufferedReader br = new BufferedReader(fr);
+            
+            String line = null;
+            while((line = br.readLine()) != null) {
+                content.append(line);
+                content.append("\n");
+            }
+            
+            //dong file
+            br.close();
+            fr.close();
+        } catch (FileAlreadyExistsException ex) {
+            return "Khong tim thay file " + filename;   
+        } catch (IOException ex) {
+            return "Khong the doc file " + filename;
+        }
+        return content.toString();
+    }
+    //Thao tac 7: luu tap tin
+    public boolean writeTextFile(String filename, String content) throws IOException {
+        boolean flag = true; //luu thanh cong
+        try {
+            //mo file
+            FileWriter fw = new FileWriter(filename);
+            //su dung buffer
+            BufferedWriter bw = new BufferedWriter(fw);
+            //ghi ra file
+            bw.write(content);
+            //dong file
+            bw.flush();
+            bw.close();
+            fw.close();
+        } catch (IOException ex) {
+            return false;
+        }
+        return flag;
     }
     
 }

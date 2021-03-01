@@ -5,6 +5,10 @@
  */
 package lthdt.chuong05.dohoa;
 
+import java.io.File;
+import javax.swing.tree.DefaultMutableTreeNode;
+import lthdt.chuong05.logic.FADO;
+import lthdt.chuong05.logic.filetreemodel;
 import lthdt.chuong05.logic.treedemomodel;
 
 /**
@@ -12,14 +16,16 @@ import lthdt.chuong05.logic.treedemomodel;
  * @author ttysa
  */
 public class treedemo extends javax.swing.JFrame {
+    filetreemodel tree;
 
     /**
      * Creates new form treedemo
      */
     public treedemo() {
         initComponents();
-        treedemomodel model = new treedemomodel();
-        this.jtree.setModel(model);
+//        treedemomodel model = new treedemomodel();
+        tree = new filetreemodel("E:\\Data");
+        this.jtree.setModel(tree);
     }
 
     /**
@@ -40,6 +46,11 @@ public class treedemo extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Minh hoa su dung cay");
 
+        jtree.addVetoableChangeListener(new java.beans.VetoableChangeListener() {
+            public void vetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {
+                jtreeVetoableChange(evt);
+            }
+        });
         jScrollPane1.setViewportView(jtree);
 
         jSplitPane1.setLeftComponent(jScrollPane1);
@@ -63,6 +74,18 @@ public class treedemo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jtreeVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_jtreeVetoableChange
+        // TODO add your handling code here:
+        DefaultMutableTreeNode node = (DefaultMutableTreeNode) jtree.getLastSelectedPathComponent();
+        if(node == null)
+            return;
+        File nodeInfo = (File) node.getUserObject();
+        FADO fo = new FADO();
+        File[] list = fo.getDirectoryContent(nodeInfo.getPath());
+        this.jTextArea.setText(fo.displayContent(list));
+        
+    }//GEN-LAST:event_jtreeVetoableChange
 
     /**
      * @param args the command line arguments
