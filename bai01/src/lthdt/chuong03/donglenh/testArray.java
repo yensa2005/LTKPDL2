@@ -5,6 +5,7 @@
  */
 package lthdt.chuong03.donglenh;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
@@ -55,6 +56,10 @@ public class testArray {
             c[i] = rnd.nextInt(1000);
           }
           System.out.println(Arrays.toString(c));
+          
+          Arrays.sort(c);
+          System.out.println(Arrays.toString(c));
+          
     }
     
     
