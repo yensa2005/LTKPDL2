@@ -7,6 +7,7 @@ package lthdt.chuong05.dohoa;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
@@ -84,12 +85,13 @@ public class mytextdemo extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(jTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnOpen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnOpen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSave, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
                 .addContainerGap())
@@ -106,7 +108,11 @@ public class mytextdemo extends javax.swing.JFrame {
             this.jTextField.setText(file.getAbsolutePath());
             //mo file
             FADO fo = new FADO();
-            this.jTextArea.setText(fo.readTextFile(file.getAbsolutePath()));
+            try {
+                this.jTextArea.setText(fo.readTextFile(file.getAbsolutePath()));
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(mytextdemo.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_btnOpenActionPerformed
 
@@ -117,7 +123,12 @@ public class mytextdemo extends javax.swing.JFrame {
             File file = jFileChooser.getSelectedFile();
             //luu file
             FADO fo = new FADO();
-            boolean result = fo.writeTextFile(file.getAbsolutePath(), this.jTextArea.getText());
+            boolean result = false;
+            try {
+                result = fo.writeTextFile(file.getAbsolutePath(), this.jTextArea.getText());
+            } catch (IOException ex) {
+                Logger.getLogger(mytextdemo.class.getName()).log(Level.SEVERE, null, ex);
+            }
             if(result){
                 jTextField.setText("Luu thanh cong");
             } else {

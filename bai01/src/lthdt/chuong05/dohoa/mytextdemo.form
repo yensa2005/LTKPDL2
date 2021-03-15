@@ -53,13 +53,15 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Group type="102" alignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="3" pref="3" max="-2" attributes="0"/>
                       <Component id="jTextField" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="btnOpen" alignment="3" max="32767" attributes="0"/>
-                  <Component id="btnSave" alignment="3" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btnOpen" alignment="3" max="32767" attributes="0"/>
+                      <Component id="btnSave" alignment="3" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="jScrollPane1" pref="442" max="32767" attributes="0"/>
